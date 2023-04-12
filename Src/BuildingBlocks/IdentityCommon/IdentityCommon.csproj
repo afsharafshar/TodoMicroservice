@@ -13,10 +13,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="IdentitySetting.json" />
-      <Resource Include="IdentitySetting.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Resource>
+        <AdditionalFiles Include="IdentitySetting.json">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </AdditionalFiles>
     </ItemGroup>
 
 </Project>

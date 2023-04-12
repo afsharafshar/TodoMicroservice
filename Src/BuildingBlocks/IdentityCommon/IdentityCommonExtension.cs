@@ -13,7 +13,9 @@ public static class IdentityCommonExtension
     {
         #region Authentication
 
-        var configuration = new ConfigurationBuilder().AddJsonFile("JwtConfig.json").Build();
+        var configuration = new ConfigurationBuilder()
+            .AddJsonFile("IdentitySetting.json",false,true)
+            .Build();
         services.Configure<JwtConfig>(configuration.GetSection("JwtConfig"));
         
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)    
