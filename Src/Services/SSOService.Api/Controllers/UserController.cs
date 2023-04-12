@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SSOService.Api.Services;
 using SSOService.Api.ViewModels;
@@ -34,11 +35,13 @@ public class UserController : ControllerBase
        return Ok(token);
     }
     
-    
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> ReNewToken()
     {
-        var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var claimsIdentity = this.User.Identity as ClaimsIdentity;
+        var userId2 = claimsIdentity.FindFirst(ClaimTypes.Name)?.Value;
         string token=await _identityService.GenerateToken(userId);
         return Ok(token);
     }

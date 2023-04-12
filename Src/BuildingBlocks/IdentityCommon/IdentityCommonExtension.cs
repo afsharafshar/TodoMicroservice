@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -18,7 +19,11 @@ public static class IdentityCommonExtension
             .Build();
         services.Configure<JwtConfig>(configuration.GetSection("JwtConfig"));
         
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)    
+        services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })    
             .AddJwtBearer(options =>    
             {    
                 options.TokenValidationParameters = new TokenValidationParameters    
@@ -40,8 +45,10 @@ public static class IdentityCommonExtension
             ops.Password.RequireUppercase = false;
             ops.Password.RequireLowercase=false;
             ops.SignIn.RequireConfirmedEmail = false;
+            ops.ClaimsIdentity.UserIdClaimType = ClaimTypes.NameIdentifier;
         });
 
+        services.AddAuthorization();
 
         #endregion
 

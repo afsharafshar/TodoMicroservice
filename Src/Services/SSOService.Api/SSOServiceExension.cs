@@ -11,7 +11,7 @@ public static class SSOServiceExension
 {
     public static IServiceCollection AddSSOService(this IServiceCollection services)
     {
-        services.AddIdentityCommon();
+    
         services.AddScoped<IIdentityService, IdentityService>();
         services.AddControllers();
         services.AddEndpointsApiExplorer();
@@ -22,7 +22,8 @@ public static class SSOServiceExension
         });
 
         services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
-
+        
+        services.AddIdentityCommon();
         return services;
     }
 }
