@@ -1,0 +1,8 @@
+{
+  "JwtConfig": {
+    "secret": "fun secret for fun people",
+    "Audience": "afshar",
+    "Issuer": "afshar",
+    "AccessTokenExpiry": 15
+  }
+}
