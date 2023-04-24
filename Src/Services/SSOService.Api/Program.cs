@@ -14,7 +14,6 @@ if (app.Environment.IsDevelopment())
    {
        var dbContext= scope.ServiceProvider.GetService<AppDbContext>();
        dbContext?.Database.EnsureCreated();
-
    }
 }
 // Configure the HTTP request pipeline.
