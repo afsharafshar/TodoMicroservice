@@ -10,6 +10,7 @@ builder.Services.AddIdentityCommon();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<TodoMapper>();
 builder.Services.AddSingleton<ITodoRepository,TodoRepository>();
 builder.Services.AddSingleton<ITodoService,TodoService.Api.Services.TodoService>();
 

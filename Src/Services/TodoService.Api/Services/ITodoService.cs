@@ -5,8 +5,8 @@ namespace TodoService.Api.Services;
 
 public interface ITodoService
 {
-    Task CreateTodo(TodoViewModel todoVm);
-    Task<List<Todo>> GetTodoAsync();
+    Task CreateTodo(TodoCreateViewModel todoCreateVm);
+    Task<List<Todo>> GetTodoAsync(TodoFilterViewModel filterViewModel);
     Task<Todo?> GetTodoById(string id);
     Task DeleteTodo(string id);
 }

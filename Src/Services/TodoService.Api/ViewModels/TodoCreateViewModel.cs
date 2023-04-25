@@ -2,9 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TodoService.Api.ViewModels;
 
-public class TodoViewModel
+public class TodoCreateViewModel
 {
-    public string? Id { get; set; }
 
     [Required(ErrorMessage = "Title must be Inserted")]
     public string? Title { get; set; }

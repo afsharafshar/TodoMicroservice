@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using TodoService.Api.Entities;
+using TodoService.Api.ViewModels;
 
 namespace TodoService.Api.Repositories;
 
@@ -18,6 +19,30 @@ public class TodoRepository : ITodoRepository
     
     public async Task<List<Todo>> GetAsync() =>
         await _todoCollection.Find(_ => true).ToListAsync();
+
+    public Task<List<Todo>> GetAsync(TodoFilterViewModel filterViewModel)
+    {
+        var filterDefinitions = new List<FilterDefinition<Todo>>();
+        if (string.IsNullOrWhiteSpace(filterViewModel.UserId))
+        {
+            throw new Exception("User is not valid");
+        }
+        filterDefinitions.Add( Builders<Todo>.Filter.Where(x => x.UserAssigned==filterViewModel.UserId));
+        
+        if (!string.IsNullOrWhiteSpace(filterViewModel.Title))
+        {
+            filterDefinitions.Add( Builders<Todo>.Filter.Where(x => x.Title.Contains(filterViewModel.Title!)));
+         
+        }
+        
+        //todo Add other filters
+        
+        var filter = Builders<Todo>.Filter.Or(
+            filterDefinitions
+        );
+       
+        return  _todoCollection.Find(filter).ToListAsync();
+    }
 
     public async Task<Todo?> GetAsync(string id) =>
         await _todoCollection.Find(x => x.Id == id).FirstOrDefaultAsync();

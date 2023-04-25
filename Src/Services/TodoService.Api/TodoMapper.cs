@@ -7,5 +7,5 @@ namespace TodoService.Api;
 [Mapper]
 public partial class TodoMapper
 {
-    public partial Todo TodoViewModelToTodo(TodoViewModel todoVm);
+    public partial Todo TodoViewModelToTodo(TodoCreateViewModel todoCreateVm);
 }

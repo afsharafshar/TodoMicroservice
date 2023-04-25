@@ -1,3 +1,5 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TodoService.Api.Services;
 using TodoService.Api.ViewModels;
@@ -17,18 +19,20 @@ public class TodoController : ControllerBase
         _logger = logger;
         _todoService = todoService;
     }
-
+    
+    [Authorize]
     [HttpGet]
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> Get([FromQuery]TodoFilterViewModel filterViewModel)
     {
-        var todos =await _todoService.GetTodoAsync();
+        filterViewModel.UserId=HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+        var todos =await _todoService.GetTodoAsync(filterViewModel);
         return Ok(todos);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(TodoViewModel todoViewModel)
+    public async Task<IActionResult> Post(TodoCreateViewModel todoCreateViewModel)
     {
-       await _todoService.CreateTodo(todoViewModel);
+       await _todoService.CreateTodo(todoCreateViewModel);
        return Ok();
     }
 }
