@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityCommon", "Src\Build
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGetWay", "ApiGetWay", "{100B4B85-1964-4B1A-983F-F446FD9C629C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Getway.Api", "Src\ApiGetWay\Getway.Api\Getway.Api.csproj", "{C108BFC2-0A04-491F-9905-E4587E608959}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Api", "Src\ApiGetWay\Gateway.Api\Gateway.Api.csproj", "{C108BFC2-0A04-491F-9905-E4587E608959}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger.Common", "Src\BuildingBlocks\Swagger.Common\Swagger.Common.csproj", "{7FC86DB7-18B4-47A0-BAA1-B71C0B95DA31}"
 EndProject
