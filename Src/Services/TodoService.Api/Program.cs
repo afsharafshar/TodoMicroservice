@@ -1,4 +1,5 @@
 using IdentityCommon;
+using Swagger.Common;
 using TodoService.Api;
 using TodoService.Api.Repositories;
 using TodoService.Api.Services;
@@ -8,11 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddIdentityCommon();
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<TodoMapper>();
 builder.Services.AddSingleton<ITodoRepository,TodoRepository>();
 builder.Services.AddSingleton<ITodoService,TodoService.Api.Services.TodoService>();
+builder.Services.AddSwaggerCommon("TodoService");
+
+
 
 builder.Services.Configure<TodoConfig>(
     builder.Configuration.GetSection("TodoConfig"));
