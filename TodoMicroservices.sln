@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Api", "Src\ApiGetWa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger.Common", "Src\BuildingBlocks\Swagger.Common\Swagger.Common.csproj", "{7FC86DB7-18B4-47A0-BAA1-B71C0B95DA31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Common", "Src\BuildingBlocks\EventBus.Common\EventBus.Common.csproj", "{8AE4E86C-5985-454D-A084-50CA1968CB0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,7 @@ Global
 		{100B4B85-1964-4B1A-983F-F446FD9C629C} = {A8149986-0B35-4C9D-ADEC-1700E8C4B6CD}
 		{C108BFC2-0A04-491F-9905-E4587E608959} = {100B4B85-1964-4B1A-983F-F446FD9C629C}
 		{7FC86DB7-18B4-47A0-BAA1-B71C0B95DA31} = {D2CA26DD-6A67-4FC0-9033-C3F6B9E34D89}
+		{8AE4E86C-5985-454D-A084-50CA1968CB0E} = {D2CA26DD-6A67-4FC0-9033-C3F6B9E34D89}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8E26616B-A094-4C9D-BF7B-D3042021DE29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -54,5 +57,9 @@ Global
 		{7FC86DB7-18B4-47A0-BAA1-B71C0B95DA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FC86DB7-18B4-47A0-BAA1-B71C0B95DA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FC86DB7-18B4-47A0-BAA1-B71C0B95DA31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE4E86C-5985-454D-A084-50CA1968CB0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE4E86C-5985-454D-A084-50CA1968CB0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE4E86C-5985-454D-A084-50CA1968CB0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE4E86C-5985-454D-A084-50CA1968CB0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
