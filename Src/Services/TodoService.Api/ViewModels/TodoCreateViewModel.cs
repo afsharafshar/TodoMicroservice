@@ -12,6 +12,7 @@ public class TodoCreateViewModel
     public string? Description { get; set; } 
     
     public bool Completed { get; set; }
-    
+
+    public string? UserCreated { get; set; } = string.Empty;
     public string? UserAssigned { get; set; }
 }

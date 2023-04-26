@@ -8,9 +8,10 @@ namespace TodoService.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class TodoController : ControllerBase
 {
-   
+
     private readonly ILogger<TodoController> _logger;
     private readonly ITodoService _todoService;
 
@@ -20,7 +21,8 @@ public class TodoController : ControllerBase
         _todoService = todoService;
     }
     
-    [Authorize]
+    //TODO Remove get user id and add interface for ihttpaccessor to getuser
+  
     [HttpGet]
     public async Task<IActionResult> Get([FromQuery]TodoFilterViewModel filterViewModel)
     {
@@ -32,6 +34,7 @@ public class TodoController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(TodoCreateViewModel todoCreateViewModel)
     {
+        todoCreateViewModel.UserCreated=HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)!;
        await _todoService.CreateTodo(todoCreateViewModel);
        return Ok();
     }

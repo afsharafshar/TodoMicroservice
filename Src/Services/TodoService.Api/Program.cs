@@ -1,4 +1,5 @@
 using IdentityCommon;
+using MassTransit;
 using Swagger.Common;
 using TodoService.Api;
 using TodoService.Api.Repositories;
@@ -11,9 +12,23 @@ builder.Services.AddIdentityCommon();
 builder.Services.AddControllers();
 builder.Services.AddSingleton<TodoMapper>();
 builder.Services.AddSingleton<ITodoRepository,TodoRepository>();
-builder.Services.AddSingleton<ITodoService,TodoService.Api.Services.TodoService>();
+builder.Services.AddScoped<ITodoService,TodoService.Api.Services.TodoService>();
 builder.Services.AddSwaggerCommon("TodoService");
-
+builder.Services.AddMassTransit(config =>
+{
+    // config.AddConsumer<BasketCheckoutConsumer>();
+    
+        config.UsingRabbitMq((ctx, cfg) => {
+            cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
+            
+            // cfg.UseHealthCheck(ctx);
+            
+            // cfg.ReceiveEndpoint(EventBusConstants.BasketCheckoutQueue, c => {
+            //     c.ConfigureConsumer<BasketCheckoutConsumer>(ctx);
+            // });
+        });
+   
+});
 
 
 builder.Services.Configure<TodoConfig>(
@@ -30,8 +45,8 @@ if (app.Environment.IsDevelopment())
 
 //app.UseHttpsRedirection();
 app.UseRouting();
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
