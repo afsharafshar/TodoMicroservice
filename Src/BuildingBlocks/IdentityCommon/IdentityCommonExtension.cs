@@ -33,8 +33,9 @@ public static class IdentityCommonExtension
                     ValidateLifetime = true,    
                     ValidateIssuerSigningKey = true,    
                     ValidIssuer = configuration["JwtConfig:Issuer"],    
-                    ValidAudience = configuration["JwtConfig:Issuer"],    
-                   IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtConfig:secret"]!))    
+                    ValidAudience = configuration["JwtConfig:Audience"],    
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtConfig:secret"]!))   
+                   
                 };    
             }); 
 

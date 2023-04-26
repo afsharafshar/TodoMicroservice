@@ -30,7 +30,7 @@ public class IdentityService : IIdentityService
     {
         this._jwtConfig = jwtConfig.Value;
         this._userManager = userManager;
-        _secret = Encoding.ASCII.GetBytes(_jwtConfig.Secret);
+        _secret = Encoding.UTF8.GetBytes(_jwtConfig.Secret);
     }
 
     
