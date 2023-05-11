@@ -1,5 +1,7 @@
 using IdentityCommon;
 using MassTransit;
+using Serilog;
+using Serilog.Common;
 using Swagger.Common;
 using TodoService.Api;
 using TodoService.Api.Repositories;
@@ -7,7 +9,7 @@ using TodoService.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Host.UseSerilog(Serilogger.Configure);
 builder.Services.AddIdentityCommon();
 builder.Services.AddControllers();
 builder.Services.AddSingleton<TodoMapper>();

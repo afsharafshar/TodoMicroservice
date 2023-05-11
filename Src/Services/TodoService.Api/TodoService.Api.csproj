@@ -14,6 +14,7 @@
     <ItemGroup>
       <ProjectReference Include="..\..\BuildingBlocks\EventBus.Common\EventBus.Common.csproj" />
       <ProjectReference Include="..\..\BuildingBlocks\IdentityCommon\IdentityCommon.csproj" />
+      <ProjectReference Include="..\..\BuildingBlocks\Serilog.Common\Serilog.Common.csproj" />
       <ProjectReference Include="..\..\BuildingBlocks\Swagger.Common\Swagger.Common.csproj" />
     </ItemGroup>
 
