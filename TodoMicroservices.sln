@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Common", "Src\Buil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Common", "Src\BuildingBlocks\Serilog.Common\Serilog.Common.csproj", "{07C1C4EE-0388-4C8D-AF03-8C89121D1F83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Api", "Src\Services\NotificationService.Api\NotificationService.Api.csproj", "{7B14A962-E733-4700-90F3-FD065E9444B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,7 @@ Global
 		{7FC86DB7-18B4-47A0-BAA1-B71C0B95DA31} = {D2CA26DD-6A67-4FC0-9033-C3F6B9E34D89}
 		{8AE4E86C-5985-454D-A084-50CA1968CB0E} = {D2CA26DD-6A67-4FC0-9033-C3F6B9E34D89}
 		{07C1C4EE-0388-4C8D-AF03-8C89121D1F83} = {D2CA26DD-6A67-4FC0-9033-C3F6B9E34D89}
+		{7B14A962-E733-4700-90F3-FD065E9444B1} = {D4CE60E4-4A4A-40E3-B056-33AC97F6B7EA}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8E26616B-A094-4C9D-BF7B-D3042021DE29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -68,5 +71,9 @@ Global
 		{07C1C4EE-0388-4C8D-AF03-8C89121D1F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07C1C4EE-0388-4C8D-AF03-8C89121D1F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07C1C4EE-0388-4C8D-AF03-8C89121D1F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B14A962-E733-4700-90F3-FD065E9444B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B14A962-E733-4700-90F3-FD065E9444B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B14A962-E733-4700-90F3-FD065E9444B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B14A962-E733-4700-90F3-FD065E9444B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
